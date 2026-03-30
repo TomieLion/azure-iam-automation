@@ -1,3 +1,4 @@
+![Azure IAM Automation](https://github.com/tomielion/azure-iam-automation/actions/workflows/deploy.yml/badge.svg)
 # Azure IAM & Secure Access Automation 🚀
 
 ## 📌 Project Overview
