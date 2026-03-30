@@ -1,0 +1,25 @@
+name: Azure IAM Automation
+
+on:
+  push:
+    branches: [ "main" ] # Triggers every time you push code
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          # This pulls the JSON we saved in GitHub Secrets earlier
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Run Automation Scripts
+        run: |
+          chmod +x setup.sh
+          chmod +x assign_roles.sh
+          ./setup.sh
+          ./assign_roles.sh
